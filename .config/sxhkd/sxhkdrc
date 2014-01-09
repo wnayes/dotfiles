@@ -1,0 +1,15 @@
+F6
+  xbacklight -dec 10
+
+F7
+  xbacklight -inc 10
+
+F8
+  amixer set Master toggle
+
+F9
+  amixer set Master 10- unmute
+
+F10
+  amixer set Master 10+ unmute
+
