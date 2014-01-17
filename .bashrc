@@ -10,8 +10,11 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 
 # Aliases
-alias ls='ls --color=auto'
+alias ls='ls -F --color=auto'
+alias lal='ls -al'
+alias grep='grep --color=auto'
 alias battery='acpi -b'
+alias rm='rm -i'
 
 alias dotgit='git --work-tree=$HOME --git-dir=$HOME/.files.git'
 

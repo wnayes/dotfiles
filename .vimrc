@@ -2,6 +2,9 @@
 syntax on
 filetype plugin on
 
+" Dark background
+set background=dark
+
 " Turn line numbers on
 set number
 
