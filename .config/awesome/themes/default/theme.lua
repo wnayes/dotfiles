@@ -31,6 +31,9 @@ theme.border_marked = "#91231c"
 theme.taglist_squares_sel   = "~/.config/awesome/themes/default/taglist/squarefw.png"
 theme.taglist_squares_unsel = "~/.config/awesome/themes/default/taglist/squarew.png"
 
+-- Launcher menu variables
+theme.launcher_icon = "~/.config/awesome/themes/default/launcher.png"
+
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
