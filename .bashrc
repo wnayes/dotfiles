@@ -18,9 +18,10 @@ alias rm='rm -i'
 
 alias dotgit='git --work-tree=$HOME --git-dir=$HOME/.files.git'
 
-alias netctlhome='sudo netctl start buffalo'
-alias netctlumn='sudo netctl start umnsecure'
-alias netctlstop='sudo netctl stop-all'
+alias nctlhome='sudo netctl start buffalo'
+alias nctlapt='sudo netctl start dlink'
+alias nctlumn='sudo netctl start umnsecure'
+alias nctlstop='sudo netctl stop-all'
 
 # Prompt formatting
 PS1='\u@\h \W\$ '
