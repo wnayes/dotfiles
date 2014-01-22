@@ -13,8 +13,12 @@ export EDITOR=vim
 alias ls='ls -F --color=auto'
 alias lal='ls -al'
 alias grep='grep --color=auto'
-alias battery='acpi -b'
 alias rm='rm -i'
+
+alias poweroff='systemctl poweroff'
+alias reboot='systemctl reboot'
+
+alias battery='acpi -b'
 
 alias dotgit='git --work-tree=$HOME --git-dir=$HOME/.files.git'
 
