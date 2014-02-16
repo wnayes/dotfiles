@@ -16,11 +16,11 @@ status=( $(</sys/class/power_supply/BAT0/status) )
 if [[ "$status" = "Discharging" ]]
 then
   statusColor=$discharge
-  status="D"
+  status=( $(echo -e "\u2715") )
 else
   statusColor=$healthy
-  status="U"
+  status=( $(echo -e "\u26A1") )
 fi
 
-echo "<span foreground='$capacityColor'>$capacity%</span> <span foreground='$statusColor'>$status</span>"
+echo "<span foreground='$statusColor'>$status</span> <span foreground='$capacityColor'>$capacity%</span>"
 

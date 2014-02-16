@@ -157,15 +157,23 @@ battery:set_markup(getBatteryStatus())
 -- }}}
 
 -- {{{ Wifi widget
+function getWifiStatus()
+    local fd = io.popen(awful.util.getdir("config") .. "/scripts/wifi.sh")
+    local ssid = fd:read()
+    fd:close()
+    return ssid
+end
+
 -- Create a wifi widget
--- awk 'NR==3 {print $3}' /proc/net/wireless
-wifi_widget = wibox.layout.fixed.horizontal()
-wifi_icon = wibox.widget.textbox()
-wifi_icon:set_text("[icon]")
-wifi_text = wibox.widget.textbox()
-wifi_text:set_text("text")
-wifi_widget:add(wifi_icon)
-wifi_widget:add(wifi_text)
+wifi_widget = wibox.widget.textbox()
+
+-- Wifi status timer
+wifiTimer = timer({timeout = 10})
+wifiTimer:connect_signal("timeout", function()
+   wifi_widget:set_markup(getWifiStatus())
+end)
+wifiTimer:start()
+wifi_widget:set_markup(getWifiStatus())
 
 -- }}}
 
@@ -248,8 +256,8 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    -- right_layout:add(separator)
-    -- right_layout:add(wifi_widget) 
+    right_layout:add(separator)
+    right_layout:add(wifi_widget)
     right_layout:add(separator)
     right_layout:add(battery)
     right_layout:add(separator)
