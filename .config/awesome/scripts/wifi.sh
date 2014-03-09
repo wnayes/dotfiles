@@ -1,6 +1,6 @@
 #!/bin/bash
 
-none='#B58900'
+none='#555555'
 on='#6060F0'
 
 symbol=( $(echo -e "\u21C5") )
@@ -9,7 +9,7 @@ active=$(netctl list | grep '*' | cut -d' ' -f 2)
 
 if [[ -z "$active" ]]
 then
-  symbolColor='#555555'
+  symbolColor=$none
   active="none"
   profileColor=$none
 else
