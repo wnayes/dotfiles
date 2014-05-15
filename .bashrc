@@ -7,16 +7,21 @@
 
 # Set colors
 eval $(dircolors -b ~/.dir_colors)
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # Environment variables
 export LANG=en_US.UTF-8
 export EDITOR=vim
+GPG_TTY=$(tty)
+export GPG_TTY
 
 # Aliases
 alias ls='ls -F --color=auto'
 alias lal='ls -al'
 alias grep='grep --color=auto'
 alias rm='rm -i'
+
+alias cdnachos='cd ~/Class/5103/Nachos-Java'
 
 alias poweroff='systemctl poweroff'
 alias reboot='systemctl reboot'
@@ -31,9 +36,12 @@ alias nctlumn='sudo netctl start umnsecure'
 alias nctlstop='sudo netctl stop-all'
 alias pingtest='ping -c 4 www.google.com'
 
-alias pacupg='sudo pacman -Syu'
+alias pacupg='sudo pacman -Syu --ignore linux,linux-headers,linux-firmware'
 alias pacinst='sudo pacman -S'
+alias pacinfo='pacman -Qi'
 alias pacorphans='pacman -Qdt'
+
+alias mplayer-hdmi='mplayer -ao alsa:device=hw=1.3'
 
 # Prompt formatting
 #PS1='\u@\h \W\$ '
@@ -45,8 +53,11 @@ PS1="$(if [[ ${EUID} == 0 ]];
 # Completion in git
 source /usr/share/git/completion/git-completion.bash
 
+# Completion for pass
+source /usr/share/bash-completion/completions/pass
+
 # Prepend cd onto paths
-shopt -s autocd
+# shopt -s autocd
 
 # Manpages coloring
 man() {

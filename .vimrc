@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 " vi compatibility. Must be first to side effect other commands
 set nocompatible
 
@@ -5,7 +7,12 @@ set nocompatible
 syntax on
 filetype plugin on
 
-" Dark background
+" Modified buffers can be hidden
+set hidden
+
+" Appearance
+" set t_Co=256
+"colorscheme molokai
 set background=dark
 
 " Turn line numbers on
@@ -17,14 +24,23 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 
+" Highlight column 80
+hi ColorColumn ctermbg=234
+set colorcolumn=80
+
 " Automatic indentation
 filetype indent on
+
+" Automatically wrap
+set textwidth=80
 
 " Change the terminal's title
 set title
 
 " Enable mouse
-set mouse=a
+"set mouse=a
+
+""" Mappings
 
 " Use ; instead of : in commands
 nnoremap ; :
@@ -32,6 +48,9 @@ nnoremap ; :
 " Make up and down move by editor rows, not line rows.
 nnoremap j gj
 nnoremap k gk
+
+" Leave insert mode with `jj'
+inoremap jj <Esc>
 
 " Forgot sudo?
 cmap w!! w !sudo tee % >/dev/null

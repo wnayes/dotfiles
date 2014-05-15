@@ -17,4 +17,11 @@ fi
 # Load userspace keybinding daemon
 sxhkd &
 
+# Start gpg-agent
+eval $(gpg-agent --daemon --write-env-file "${HOME}/.gpg-agent-info")
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+fi
+
 exec awesome
